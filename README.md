@@ -1,4 +1,4 @@
-# hachinami_sister
+# yanami_sister
 
 ``` bash
 #使用時、必ずm8のexperimentを用いること
