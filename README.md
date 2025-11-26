@@ -1,4 +1,4 @@
-# yanami_project
+# yanami_project(8bit-music-lib追加機能)
 
 ``` bash
 #使用時、必ずm8のexperimentを用いること
