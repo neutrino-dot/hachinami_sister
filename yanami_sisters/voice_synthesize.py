@@ -6,13 +6,13 @@ from scipy.signal import square,butter,sosfilt
 
 def _bpf(wave,formant):
   """bpfフィルタ関数"""
-  filtered = np.zeros_like(wave)
+  out = wave.copy()
   for fc, bw in formant:
       low = fc - bw / 2
       high = fc + bw / 2
       sos = butter(2, [low, high], btype='band', fs=22050, output='sos')
-      filtered += sosfilt(sos, wave)
-  return filtered
+      out += sosfilt(sos, wave)
+  return out
 
 def _apply_fade(wave, fade_time):
     """音の前後にフェードをかけて自然に音を変更するための関数"""
