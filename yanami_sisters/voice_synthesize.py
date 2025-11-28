@@ -40,5 +40,5 @@ class SyntheticVoice(WaveGenerator):
         formant = self.formants[vowel[0]]
         mod = np.sin(2*np.pi*5*t) * int(self.vibrato) # ビブラート選択
         base_pulse =  square(2 * np.pi * freq * t,duty=0.25) # 基本振動(dutyは12.5%)
-        return np.array([_apply_fade(_bpf(base_pulse,formant),0.08)])
+        return _apply_fade(_bpf(base_pulse,formant),0.08)
 
