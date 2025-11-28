@@ -11,7 +11,7 @@ def _bpf(wave,formant):
       low = fc - bw / 2
       high = fc + bw / 2
       sos = butter(2, [low, high], btype='band', fs=22050, output='sos')
-      out += sosfilt(sos, wave)
+      out += sosfilt(sos, wave)*3
   return out
 
 def _apply_fade(wave, fade_time):
