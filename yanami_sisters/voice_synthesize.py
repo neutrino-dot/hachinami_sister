@@ -6,12 +6,12 @@ from scipy.signal import square,butter,sosfilt
 
 def _bpf(wave,formant):
   """bpfフィルタ関数"""
-  out = wave.copy()/3
+  out = np.zeros_like(wave)
   for fc, bw in formant:
       low = fc - bw / 2
       high = fc + bw / 2
       sos = butter(2, [low, high], btype='band', fs=22050, output='sos')
-      out += sosfilt(sos, wave)*3
+      out += sosfilt(sos, wave)
   return out
 
 def _apply_fade(wave, fade_time):
